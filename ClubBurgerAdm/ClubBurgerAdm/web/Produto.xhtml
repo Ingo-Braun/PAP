@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="/ClubBurgerAdm/faces/resources/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    </h:head>
+    <h:body>
+        <h:panelGrid columns="2">
+            <h:form>
+                <p:tabMenu activeIndex="#{param.i}" style="align:center">
+                    <p:menuitem value="Produtos" outcome="Produto" >
+                        <f:param name="i" value="0" />
+                    </p:menuitem>
+                    <p:menuitem value="Clientes" outcome="Cliente" >
+                        <f:param name="i" value="1" />
+                    </p:menuitem>
+                    <p:menuitem value="Formas de pagamento" outcome="Pgto" >
+                        <f:param name="i" value="2" />
+                    </p:menuitem>
+                    <p:menuitem value="Formas de entrega" outcome="Fentrega" >
+                        <f:param name="i" value="3" />
+                    </p:menuitem>
+                    <p:menuitem value="Cardapio" outcome="cardapio" >
+                        <f:param name="i" value="4" />
+                    </p:menuitem>
+                </p:tabMenu>  
+            </h:form>
+            <br />
+            <h:commandButton value="Logout" action="#{webMB}"/>
+        </h:panelGrid>
+
+        <h:form id="dataTable">
+            <p:dataTable id="Produtos" var="Produto" editable="true" value="#{webMB.BuscarProdutos()}" reflow="true" paginator="true" rows="12" rowsPerPageTemplate="6,12,16">
+                <p:column style="width:3%" resizable="true"  headerText="Id">
+                    <h:outputText value="#{Produto.id}" /> 
+                </p:column>
+
+                <p:column resizable="true" headerText="Nome">
+                    <h:outputText value="#{Produto.nome}" />
+                </p:column>
+
+                <p:column style="width:60%" resizable="true" headerText="Descrição">
+                    <h:outputText value="#{Produto.descricao}" />
+                </p:column>
+
+                <p:column resizable="true" headerText="Preço">
+                    <h:outputText value="#{Produto.preco}" />
+                </p:column>
+                <p:column style="width:3%" resizable="true" headerText="">
+                    <p:commandLink update=":Edit" oncomplete="PF('DEditar').show()" title="Editar Cliente">
+                        <h:outputText styleClass="fa-pencil" style="margin:0 auto;font-family: FontAwesome;" />
+                        <f:setPropertyActionListener value="#{Produto}" target="#{webMB.produto}" />
+                    </p:commandLink>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        <h:form id="Edit">
+            <p:dialog header="Editar Produto" widgetVar="DEditar" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="telefones" style="text-align:center;">
+                    <fieldset>
+                        <h:panelGrid columns="1">
+                            <p>Nome</p>
+                            <p:inputText value="#{webMB.produto.nome}" placeholder="#{webMB.produto.nome}" title="Nome"></p:inputText>
+                            <p>Preço</p>
+                            <p:inputText value="#{webMB.preco}" placeholder="#{webMB.produto.preco}" title="Preço"></p:inputText>
+                            <p>Descrição</p>
+                            <p:inputTextarea value="#{webMB.produto.descricao}" placeholder="#{webMB.produto.descricao}" title="Descrição"></p:inputTextarea>
+                                <p:commandButton action="#{webMB.salvarProduto()}" value="Salvar" update=":Edit :dataTable"/>
+                        </h:panelGrid>
+                    </fieldset>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="/ClubBurgerAdm/faces/resources/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    </h:head>
+    <h:body>
+        <div class="ui-fluid">
+
+            <h:panelGrid columns="1">
+                <h:form>
+                    <p:tabMenu activeIndex="#{param.i}">
+                        <p:menuitem  value="Produtos" outcome="Produto" >
+                            <f:param name="i" value="0" />
+                        </p:menuitem>
+                        <p:menuitem update=":dataTable:Clientes" value="Clientes" outcome="Cliente" >
+                            <f:param name="i" value="1" />
+                        </p:menuitem>
+                        <p:menuitem value="Formas de pagamento" outcome="Pgto" >
+                            <f:param name="i" value="2" />
+                        </p:menuitem>
+                        <p:menuitem value="Formas de entrega" outcome="Fentrega" >
+                            <f:param name="i" value="3" />
+                        </p:menuitem>
+                        <p:menuitem value="Cardapio" outcome="cardapio" >
+                            <f:param name="i" value="4" />
+                        </p:menuitem>
+                    </p:tabMenu>
+                    <br />
+                    <h:commandButton value="Logout" action="#{webMB}"/>
+                </h:form>
+            </h:panelGrid>
+
+            <fieldset>
+                <h:form id="dataTable">
+                    <p:dataTable id="Clientes" var="Cliente" editable="true" value="#{webMB.BuscarClientes()}" reflow="true" paginator="true" rows="12" rowsPerPageTemplate="6,12,16">
+                        <p:column style="width:3%" resizable="true"  headerText="Id">
+                            <h:outputText value="#{Cliente.id}" /> 
+                        </p:column>
+
+                        <p:column resizable="true" headerText="cpf">
+                            <h:outputText value="#{Cliente.cpf}" />
+                        </p:column>
+
+                        <p:column style="width:40%" resizable="true" headerText="E-mail">
+                            <h:outputText value="#{Cliente.email}" />
+                        </p:column>
+
+                        <p:column resizable="true" headerText="Nome">
+                            <h:outputText value="#{Cliente.nome}" />
+                        </p:column>
+
+                        <p:column resizable="true" headerText="Sobrenome">
+                            <h:outputText value="#{Cliente.sobrenome}" />
+                        </p:column>
+
+                        <p:column style="width:3%" resizable="true" headerText="">
+                            <p:commandLink update=":ende:enderecos" oncomplete="PF('DEnderecos').show()" title="Ver Endereços">
+                                <h:outputText styleClass="fa-map-marker" style="margin:0 auto;font-family: FontAwesome;" />
+
+                                <f:setPropertyActionListener value="#{Cliente}" target="#{webMB.cliente}" />
+                            </p:commandLink>
+                        </p:column>
+                        <p:column style="width:3%" resizable="true" headerText="">
+                            <p:commandLink update=":tel:telefones" oncomplete="PF('DTelefones').show()" title="Ver Telefones">
+                                <h:outputText styleClass="fa-phone" style="margin:0 auto;font-family: FontAwesome;" />
+                                <f:setPropertyActionListener value="#{Cliente}" target="#{webMB.cliente}" />
+                            </p:commandLink>
+                        </p:column>
+                        <p:column style="width:3%" resizable="true" headerText="">
+                            <p:commandLink update=":Edit" oncomplete="PF('DEditar').show()" title="Editar Cliente">
+                                <h:outputText styleClass="fa-pencil" style="margin:0 auto;font-family: FontAwesome;" />
+                                <f:setPropertyActionListener value="#{Cliente}" target="#{webMB.cliente}" />
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+                <fieldset title="Cadastro de um novo cliente">
+                    <h:form>
+                        <h:panelGrid columns="1">
+                            <p>nome</p>
+                            <p:inputText value="#{webMB.cliente.nome}" required="true"/>
+                            <p>sobrenome</p>
+                            <p:inputText value="#{webMB.cliente.sobrenome}" required="true"/>
+                            <p>cpf</p>
+                            <p:inputText value="#{webMB.cliente.cpf}" required="true"/>
+                            <p>email</p>
+                            <p:inputText value="#{webMB.cliente.email}" required="true"/>
+                            <p>senha</p>
+                            <h:inputSecret value="#{webMB.cliente.senha}" required="true"/>
+                        </h:panelGrid>
+                        <fieldset title="Telefone">
+                            <p>ddd</p>
+                            <p:inputText value="#{webMB.ddd}" required="true"/>
+                            <p>Telefone</p>
+                            <p:inputText value="#{webMB.telefone}" required="true"/>
+                        </fieldset>
+                        <h:panelGrid columns="1">
+                            <fieldset title="Endereco">
+                                <p>numero</p>
+                                <p:inputText value="#{webMB.numero}" required="true"/>
+                                <p>rua</p>
+                                <p:inputText value="#{webMB.endereco.rua}" required="true"/>
+                                <p>cidade</p>
+                                <p:inputText value="#{webMB.endereco.cidade}" required="true"/>
+                                <p>estado *</p>
+                                <p:inputText value="#{webMB.endereco.estado}" required="true"/>
+                                <p>Complemento</p>
+                                <p:inputText value="#{webMB.endereco.complemento}" required="true"/>
+                            </fieldset>
+                            <p:commandButton update="dataTable" value="Submit" action="#{webMB.salvarNovoCliente()}"/>
+                        </h:panelGrid>
+                    </h:form>
+                </fieldset>
+                <h:form id="ende">
+                    <p:dialog header="Endereço" widgetVar="DEnderecos" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="enderecos" style="text-align:center;">
+                            <p:panelGrid columns="2" rendered="#{not empty webMB.cliente}" columnClasses="label,value">
+                                <p:dataTable var="Endereco" value="#{webMB.cliente.enderecoList}">
+                                    <p:column headerText="Id">
+                                        <h:outputText value="#{Endereco.id}" />
+                                    </p:column>
+                                    <p:column headerText="Rua">
+                                        <h:outputText value="#{Endereco.rua}" />
+                                    </p:column>
+                                    <p:column headerText="Número">
+                                        <h:outputText value="#{Endereco.numero}" />
+                                    </p:column>
+                                    <p:column headerText="Cidade">
+                                        <h:outputText value="#{Endereco.cidade}" />
+                                    </p:column>
+                                </p:dataTable>
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                <h:form id="tel">
+                    <p:dialog header="Telefones" widgetVar="DTelefones" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="telefones" style="text-align:center;">
+                            <p:panelGrid columns="2" rendered="#{not empty webMB.cliente}" columnClasses="label,value">
+                                <p:dataTable var="Telefone" value="#{webMB.cliente.telefoneList}">
+                                    <p:column headerText="DDD">
+                                        <h:outputText value="#{Telefone.dddToString()}" />
+                                    </p:column>
+                                    <p:column headerText="Numero">
+                                        <h:outputText value="#{Telefone.telefone}" />
+                                    </p:column>
+                                </p:dataTable>
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                <h:form id="Edit">
+                    <p:dialog header="Editar Cliente" widgetVar="DEditar" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="telefones" style="text-align:center;">
+                            <fieldset>
+                                <h:panelGrid columns="1">
+                                    <p>Nome</p>
+                                    <h:inputText value="#{webMB.cliente.nome}" title="Nome">#{webMB.cliente.nome}</h:inputText>
+                                    <p>Sobrenome</p>
+                                    <h:inputText value="#{webMB.cliente.sobrenome}" title="Sobrenome">#{webMB.cliente.sobrenome}</h:inputText>
+                                    <p>CPF</p>
+                                    <h:inputText value="#{webMB.cliente.cpf}" title="CPF">#{webMB.cliente.cpf}</h:inputText>
+                                    <p>Email</p>
+                                    <h:inputText value="#{webMB.cliente.email}" title="Email">#{webMB.cliente.email}</h:inputText>
+                                    <p:commandButton action="#{webMB.salvarCliente()}" value="Salvar" update=":Edit :dataTable"/>
+                                </h:panelGrid>
+                            </fieldset>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                <h:form id="gro"> 
+                    <p:growl id="growl" showDetail="true" sticky="false" autoUpdate="true" /> 
+                </h:form>  
+            </fieldset>
+        </div>
+    </h:body>
+</html>
