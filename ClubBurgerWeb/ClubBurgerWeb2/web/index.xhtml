@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <!--Design feito com base em alguns estudos do w3schools + wordpress
+    Feito pelos alunos do quarto semestre de análise e desenvolvimento de sistemas, universidade metodista.
+    Andre Almeida, Ingo Braun.
+    -->
+    <head>
+        <title>Club Burguer</title>
+        <link href="/ClubBurgerWeb2/faces/resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- Vem no pai jquerry -->
+        <script src="/ClubBurgerWeb2/faces/resources/js/jquery.min.js"></script>
+        <!--Chama o css pai -->
+        <link href="/ClubBurgerWeb2/faces/resources/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+        <!--//Fecha o css pai-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!--fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'/>
+        <!--//fonts-->
+        <script type="text/javascript" src="/ClubBurgerWeb2/faces/resources/js/move-top.js"></script>
+        <script type="text/javascript" src="/ClubBurgerWeb2/faces/resources/js/easing.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
+            });
+        </script>
+        <!--//slider-script-->
+        <script>$(document).ready(function (c) {
+                $('.alert-close').on('click', function (c) {
+                    $('.message').fadeOut('slow', function (c) {
+                        $('.message').remove();
+                    });
+                });
+            });
+        </script>
+        <script>$(document).ready(function (c) {
+                $('.alert-close1').on('click', function (c) {
+                    $('.message1').fadeOut('slow', function (c) {
+                        $('.message1').remove();
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <!--header-->
+        <div class="header">
+            <div class="container">
+                <div class="header-top">		
+                    <div class="logo">
+                        <a href="index.html"><img src="/ClubBurgerWeb2/faces/resources/images/logo.png" alt=""/></a>
+                    </div>
+                    <div class="top-nav">
+                        <span class="menu"><img src="/ClubBurgerWeb2/faces/resources/images/menu.png" alt=""/></span>
+                        <ul class="icon1 sub-icon1">
+                            <li  ><a href="index.html" >Inicio</a></li>
+                            <li><a href="produtos.html" > Cardápio</a></li>	
+                            <li><a href="#"><i></i></a>
+                                <ul class="sub-icon1 list">
+                                    <h3>Recente adicionado(2)</h3>
+                                    <div class="shopping_cart">
+                                        <div class="cart_box">
+                                            <div class="message">
+                                                <div class="alert-close"> </div> 
+                                                <div class="list_img"><img src="/ClubBurgerWeb2/faces/resources/images/carrinho1.jpg" class="img-responsive" alt=""/></div>
+                                                <div class="list_desc"><h4><a href="#">Hamburguer Clássico</a></h4>
+                                                    <p>Hamburguer clássico de 220g + Molho Especial da casa. </p>
+                                                    <a href="#" class="offer">1 escolhido</a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="cart_box">
+                                            <div class="message1">
+                                                <div class="alert-close1"> </div> 
+                                                <div class="list_img"><img src="/ClubBurgerWeb2/faces/resources/images/carrinho2.jpg" class="img-responsive" alt=""/></div>
+                                                <div class="list_desc"><h4><a href="#">Refrigerante Coca Cola</a></h4>
+                                                    <p>Refrigerante Coca Cola 600ML </p>
+                                                    <a href="#" class="offer">1 escolhido</a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="check_button"><a href="carrinho.html">+Carrinho</a></div>
+                                    <div class="clearfix"></div>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!--script-->
+                        <script>
+                            $("span.menu").click(function () {
+                                $(".top-nav ul").slideToggle(500, function () {
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="container">	
+                <h1>Um novo estilo de hamburgueria</h1>
+                <p>Sanduíches frescos, suculentos, da maneira que você sempre sonhou, só aqui no Club Burguer.</p>
+                <a href="#content" class="scroll down"><img src="/ClubBurgerWeb2/faces/resources/images/arr.png" alt=""/></a>
+            </div>
+        </div>
+        <div class="content" id="content">
+            <div class="content-top">
+                <div class="container">
+                    <div class="content-top-at">
+                        <div class="content-top-grid">
+                            <a class="news-letter" href="#">
+                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""/><i> </i>LANCHES</label>
+                            </a>
+                            <a class="news-letter" href="#">
+                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""/><i> </i>REFRIS</label>
+                            </a>
+                            <a class="news-letter" href="#">
+                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""/><i> </i>PROMO</label>
+                            </a>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <a  href="produtos.html" class="product-in hvr-shutter-in-horizontal">CARDÁPIO COMPLETO</a>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="container">
+                <div class="content-grid">
+                    <h3 class="future">TOP</h3>
+                    <p class="five">1/5</p>
+                    <div class="clearfix"> </div>
+                    <ul id="flexiselDemo1">	
+                        <c:forEach items="#{papMB.buscarCardapio()}" var="Cardapio">
+                            <li><div class="men-grid">
+                                    <a href="ex_produto.html"><img class="img-responsive" src="/ClubBurgerWeb2/faces/resources/images/produto1.png" alt=""/></a>
+                                    <div class="value-in">
+                                        <p>#{Cardapio.nome}</p>
+                                        <span>25R$</span>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="down-top ">
+
+                                        <select  class="drop-down">
+                                            <option value="" class="size" label="QTD" title="QTD"></option>
+                                            <option value="1">1x180g</option>
+                                            <option value="2">2x180g</option>
+                                            <option value="3">3x180g</option>
+                                        </select>
+                                    </div>	
+                                </div></li>
+                        </c:forEach>
+                    </ul>
+                    <script type="text/javascript">
+                        $(window).load(function () {
+                            $("#flexiselDemo1").flexisel({
+                                visibleItems: 3,
+                                animationSpeed: 1000,
+                                autoPlay: true,
+                                autoPlaySpeed: 3000,
+                                pauseOnHover: true,
+                                enableResponsiveBreakpoints: true,
+                                responsiveBreakpoints: {
+                                    portrait: {
+                                        changePoint: 480,
+                                        visibleItems: 1
+                                    },
+                                    landscape: {
+                                        changePoint: 640,
+                                        visibleItems: 2
+                                    },
+                                    tablet: {
+                                        changePoint: 768,
+                                        visibleItems: 2
+                                    }
+                                }
+                            });
+
+                        });
+                    </script>
+                    <script type="text/javascript" src="/ClubBurgerWeb2/faces/resources/js/jquery.flexisel.js"></script>
+                </div>
+                <div class="content-grid">
+                    <h3 class="future-in">COMBOS</h3>
+                    <p class="five">1/5</p>
+                    <div class="clearfix"> </div>
+                    <ul id="flexiselDemo2">			
+                        <li><div class="men-grid">
+                                <a href="ex_produto.html"><img class="img-responsive" src="/ClubBurgerWeb2/faces/resources/images/produto1.png" alt=""/></a>
+                                <div class="value-in">
+                                    <p>Clássico + Batata</p>
+                                    <span>35R$</span>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="down-top ">
+
+                                    <select  class="drop-down">
+                                        <option value="" class="size">QTD</option>
+                                        <option value="1">1x180g</option>
+                                        <option value="2">2x180g</option>
+                                        <option value="3">3x180g</option>
+                                    </select>
+                                </div>	
+                            </div></li>
+                        <li><div class="men-grid">
+                                <a href="ex_produto.html"><img class="img-responsive" src="/ClubBurgerWeb2/faces/resources/images/produto2.png" alt=""/></a>
+                                <div class="value-in">
+                                    <p>xBurguer + Batata</p>
+                                    <span>30R$</span>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="down-top ">
+
+                                    <select  class="drop-down">
+                                        <option value="" class="size">QTD</option>
+                                        <option value="1">1x120g</option>
+                                        <option value="2">2x120g</option>
+                                        <option value="3">3x120g</option>
+                                    </select>
+                                </div>	
+                            </div></li>
+                        <li><div class="men-grid">
+                                <a href="ex_produto.html"><img class="img-responsive" src="/ClubBurgerWeb2/faces/resources/images/produto3.png" alt=""/></a>
+                                <div class="value-in">
+                                    <p>Especial + Batata</p>
+                                    <span>55R$</span>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="down-top ">
+
+                                    <select  class="drop-down">
+                                        <option value="" class="size">QTD</option>
+                                        <option value="1">1x220g</option>
+                                        <option value="2">2x220g</option>
+                                        <option value="3">3x220g</option>
+                                    </select>
+                                </div>	
+                            </div></li>
+
+
+                    </ul>
+                    <script type="text/javascript">
+                        $(window).load(function () {
+                            $("#flexiselDemo2").flexisel({
+                                visibleItems: 3,
+                                animationSpeed: 1000,
+                                autoPlay: true,
+                                autoPlaySpeed: 3000,
+                                pauseOnHover: true,
+                                enableResponsiveBreakpoints: true,
+                                responsiveBreakpoints: {
+                                    portrait: {
+                                        changePoint: 480,
+                                        visibleItems: 1
+                                    },
+                                    landscape: {
+                                        changePoint: 640,
+                                        visibleItems: 2
+                                    },
+                                    tablet: {
+                                        changePoint: 768,
+                                        visibleItems: 2
+                                    }
+                                }
+                            });
+
+                        });
+                    </script>
+                    <script type="text/javascript" src="/ClubBurgerWeb2/faces/resources/js/jquery.flexisel.js"></script>
+                </div>
+            </div>
+            <!---->
+            <div class="footer">
+                <div class="footer-top">
+                    <div class="container">
+                        <a href="#" class="theme"><i> </i> “ Carlo Muniz - Você não irá se arrepender, a qualidade é extraordinária ”</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="footer-bottom-at">
+                            <div class="col-md-6 footer-grid">
+                                <h3>Club Burguer</h3>
+                                <p>Contamos sempre com a sua visita, com o seu feedback, para melhorarmos sempre.</p>
+                            </div>
+                            <div class="col-md-6 footer-grid-in">
+                                <ul class="footer-nav">
+                                    <li><a href="404.html" > Sobre</a>|</li>
+                                    <li><a href="404.html" > Contato</a></li>
+                                </ul>
+                                <p class="footer-class">Copyright © 2017 Club Burguer by  <a href="#" target="_blank">Andre Almeida e Ingo Braun</a> </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                        $(document).ready(function () {
+                            /*
+                             var defaults = {
+                             containerID: 'toTop', // fading element id
+                             containerHoverID: 'toTopHover', // fading element hover id
+                             scrollSpeed: 1200,
+                             easingType: 'linear' 
+                             };
+                             */
+
+                            $().UItoTop({easingType: 'easeOutQuart'});
+
+                        });
+                </script>
+                <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+            </div>
+        </div>
+    </body>
+</html>
+

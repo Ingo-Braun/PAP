@@ -1,0 +1,285 @@
+<!--Design feito com base em alguns estudos do w3schools + wordpress
+Feito pelos alunos do quarto semestre de análise e desenvolvimento de sistemas, universidade metodista.
+Andre Almeida, Ingo Braun.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Club Burguer</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Vem no pai jquerry -->
+<script src="js/jquery.min.js"></script>
+<!--Chama o css pai -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//Fecha o css pai-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+				<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+				</script>
+<!--//slider-script-->
+<script>$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.message').fadeOut('slow', function(c){
+	  		$('.message').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close1').on('click', function(c){
+		$('.message1').fadeOut('slow', function(c){
+	  		$('.message1').remove();
+		});
+	});	  
+});
+</script>
+</head>
+<body>
+<!--header-->
+	<div class="header">
+		<div class="container">
+		<div class="header-top">		
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.png" alt=""></a>
+			</div>
+				<div class="top-nav">
+					<span class="menu"><img src="images/menu.png" alt=""> </span>
+					<ul class="icon1 sub-icon1">
+						<li  ><a href="index.html" >Inicio</a></li>
+						<li><a href="produtos.html" > Cardápio</a></li>	
+						<li><a href="#"><i></i></a>
+						<ul class="sub-icon1 list">
+						  <h3>Recente adicionado(2)</h3>
+						  <div class="shopping_cart">
+							  <div class="cart_box">
+							   	 <div class="message">
+							   	     <div class="alert-close"> </div> 
+										<div class="list_img"><img src="images/carrinho1.jpg" class="img-responsive" alt=""></div>
+										<div class="list_desc"><h4><a href="#">Hamburguer Clássico</a></h4>
+										<p>Hamburguer clássico de 220g + Molho Especial da casa. </p>
+										<a href="#" class="offer">1 escolhido</a>
+										</div>
+		                              <div class="clearfix"></div>
+	                              </div>
+	                            </div>
+	                           <div class="cart_box">
+							   	 <div class="message1">
+							   	     <div class="alert-close1"> </div> 
+										<div class="list_img"><img src="images/carrinho2.jpg" class="img-responsive" alt=""></div>
+										<div class="list_desc"><h4><a href="#">Refrigerante Coca Cola</a></h4>
+										<p>Refrigerante Coca Cola 600ML </p>
+										<a href="#" class="offer">1 escolhido</a>
+										</div>
+		                              <div class="clearfix"></div>
+	                              </div>
+	                            </div>
+	                        </div>
+							  <div class="check_button"><a href="carrinho.html">+Carrinho</a></div>
+					      <div class="clearfix"></div>
+						</ul>
+					</li>
+					</ul>
+					<!--script-->
+				<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(500, function(){
+						});
+					});
+			</script>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+		<div class="banner banner-in">
+			
+		</div>
+		<div class="content">
+			
+		<!---->
+		<div class="container">
+			<div class="content-product">
+				<h3 class="future-men">TOP</h3>
+					
+				<div class="col-md-4 col-d">
+				<div class="men-grid in-men">
+					<a href="ex_produto.html"><img class="img-responsive" src="images/produto1.png" alt=""></a>
+						<div class="value-in">
+							<p>CLÁSSICO</p>
+							<span>R$ 25</span>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="down-top ">
+						
+							 <select  class="drop-down">
+								<option value="" class="size" value="">QTD</option>
+								<option value="1">1x180g</option>
+								<option value="2">2x180g</option>
+								<option value="3">3x180g</option>
+							 </select>
+						</div>	
+					</div>
+				</div>
+				<div class="col-md-4 col-d">
+				<div class="men-grid in-men">
+					<a href="ex_produto.html"><img class="img-responsive" src="images/produto2.png" alt=""></a>
+						<div class="value-in">
+							<p>CHEESBURGUER</p>
+							<span>R$ 20</span>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="down-top ">
+						
+							 <select  class="drop-down">
+								<option value="" class="size" value="">QTD</option>
+								<option value="1">1x180g</option>
+								<option value="2">2x180g</option>
+								<option value="3">3x180g</option>
+							 </select>
+						</div>	
+					</div>
+				</div>
+				<div class="col-md-4 col-d">
+				<div class=" men-grid in-men">
+					<a href="ex_produto.html"><img class="img-responsive" src="images/produto3.png" alt=""></a>
+						<div class="value-in">
+							<p>ESPECIAL</p>
+							<span>R$ 32</span>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="down-top ">
+						
+							 <select  class="drop-down">
+								<option value="" class="size" value="">QTD</option>
+								<option value="1">1x180g</option>
+								<option value="2">2x180g</option>
+								<option value="3">3x180g</option>
+							 </select>
+						</div>	
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="content-product">
+				<h3 class="future-women">REFRI</h3>
+					<div class="col-md-4 col-d">
+				<div class=" men-grid in-men ">
+					<a href="ex_produto.html"><img class="img-responsive" src="images/refri.png" alt=""></a>
+						<div class="value-in">
+							<p>COCA COLA</p>
+							<span>R$ 7</span>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="down-top ">
+						
+							 <select  class="drop-down">
+								<option value="" class="size" value="">QTD</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							 </select>
+						</div>	
+					</div>
+				</div>
+				<div class="col-md-4 col-d">
+				<div class="men-grid in-men">
+					<a href="ex_produto.html"><img class="img-responsive" src="images/refri.png" alt=""></a>
+						<div class="value-in">
+							<p>SPRITE</p>
+							<span>R$ 7</span>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="down-top ">
+						
+							 <select  class="drop-down">
+								<option value="" class="size" value="">QTD</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							 </select>
+						</div>	
+					</div>
+				</div>
+				<div class="col-md-4 col-d">
+				<div class="men-grid in-men">
+					<a href="ex_produto.html"><img class="img-responsive" src="images/refri.png" alt=""></a>
+						<div class="value-in">
+							<p>FANTA</p>
+							<span>R$ 7</span>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="down-top ">
+						
+							 <select  class="drop-down">
+								<option value="" class="size" value="">QTD</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							 </select>
+						</div>	
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!---->
+		
+	</div>
+		<!---->
+		<div class="footer">
+			<div class="footer-top">
+				<div class="container">
+				<a href="#" class="theme"><i> </i> “ Carlo Muniz - Você não irá se arrepender, a qualidade é extraordinária ”</a>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container">
+				<div class="footer-bottom-at">
+					<div class="col-md-6 footer-grid">
+						<h3>Club Burguer</h3>
+						<p>Contamos sempre com a sua visita, com o seu feedback, para melhorarmos sempre.</p>
+					</div>
+					<div class="col-md-6 footer-grid-in">
+					<ul class="footer-nav">
+						<li><a href="404.html" > Sobre</a>|</li>
+						<li><a href="404.html" > Contato</a></li>
+					</ul>
+					<p class="footer-class">Copyright © 2017 Club Burguer by  <a href="#" target="_blank">Andre Almeida e Ingo Braun</a> </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>
+				<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+		</div>
+</body>
+</html>
