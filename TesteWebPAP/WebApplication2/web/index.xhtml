@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <fieldset>
+            <h:form>
+                <h:commandButton value="Testar" action="#{testeMB.iniciar()}"/>
+                <h:commandButton value="Deletar Todos os Clientes" action="#{testeMB.RemoverTodos}"/>
+                <h:commandButton value="Teste login" action="#{testeMB.login()}"/>
+                <h:commandButton value="Teste logout" action="#{testeMB.logout()}"/>
+                <h:outputText value="#{testeMB.logado}"/>
+            </h:form>
+        </fieldset>
+        <fieldset>
+            <h:outputText value="#{testeMB.ejson.estado}"/>
+            <h:outputText value="#{testeMB.ejson.bairro}"/>
+            <h:outputText value="#{testeMB.ejson.lat}"/>
+            <h:outputText value="#{testeMB.ejson.lon}"/>
+        </fieldset>
+        <fieldset title="Cadastro de um novo cliente">
+            <h:form>
+                <p>nome</p>
+                <h:inputText value="#{testeMB.cli.nome}"/>
+                <p>sobrenome</p>
+                <h:inputText value="#{testeMB.cli.sobrenome}"/>
+                <p>cpf</p>
+                <h:inputText value="#{testeMB.cli.cpf}"/>
+                <p>email</p>
+                <h:inputText value="#{testeMB.cli.email}"/>
+                <p>senha</p>
+                <h:inputSecret value="#{testeMB.cli.senha}"/>
+                <fieldset title="Telefone">
+                    <p>ddd</p>
+                    <h:inputText value="#{testeMB.tel.ddd}"/>
+                    <p>Telefone</p>
+                    <h:inputText value="#{testeMB.telefone}"/>
+                </fieldset>
+                <fieldset title="Endereco">
+                    <p>numero</p>
+                    <h:inputText value="#{testeMB.e.numero}"/>
+                    <p>rua</p>
+                    <h:inputText value="#{testeMB.e.rua}"/>
+                    <p>cidade</p>
+                    <h:inputText value="#{testeMB.e.cidade}"/>
+                    <p>estado *</p>
+                    <h:inputText value="#{testeMB.e.estado}"/>
+                    <p>Complemento</p>
+                    <h:inputText value="#{testeMB.e.complemento}"/>
+                </fieldset>
+                <h:commandButton value="Submit" action="#{testeMB.salvarCliente()}"/>
+                <p>id salvo</p>
+                <h:outputText value="#{testeMB.cli.id}"/>
+            </h:form>
+        </fieldset>
+    </h:body>
+</html>
+
